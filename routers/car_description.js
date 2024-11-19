@@ -12,9 +12,9 @@ const connection = mysql.createPool({
 
 // QUERY [GET all cars per car category]
 
-router.get('/:car_description_id', async (req, res) => {                   // localhost:5000/car_description/1 [GET]
+router.get('/api/car_description/:car_description_id', async (req, res) => {                   // localhost:5000/api/car_description/1 [GET]
     try{
-        const {car_description_id} = req.params;
+        const {car_description_id} = req.params.car_description_id;
         const [data] = await connection.promise().query(
             `SELECT * from car_description where car_description_id=?;`, [car_description_id]
         );

@@ -12,7 +12,7 @@ const connection = mysql.createPool({
 
 // GET all car categories
 
-router.get('/', async (req, res) => {                       // localhost:5000/car_categories/ [GET]
+router.get('/api/car-categories', async (req, res) => {                       // localhost:5000/api/car_categories [GET]
     try{
         const [data] = await connection.promise().query(
             `SELECT * FROM car_categories;`
